@@ -2,12 +2,22 @@ en:
   hello: "Hello world"
   tutorial: "Ruby on Rails Tutorial"
   base_title: "Ruby on Rails Tutorial Sample App"
+  sample_app: "Sample App"
+  layouts:
+    header:
+      login: "Login"
+    footer:
+      en: "English"
+      vi: "Vietnamese"
+      by: "by"
+      news: "News"
   static_pages:
     home:
       heading: "Home"
       app_name: "Sample App"
       intro: "This is the home page for the"
       type_app: "sample application"
+      signup: "Sign up"
     help:
       heading: "Help"
       intro_help_page: "Get help on the Ruby on Rails Tutorial at the"
@@ -24,3 +34,7 @@ en:
       heading: "Contact"
       intro: "Contact the Ruby on Rails Tutorial about the sample app at the"
       contact: "contact page."
+  user:
+    new:
+      signup: "Sign up"
+      intro: "Sign up page for new users."
