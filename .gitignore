@@ -70,3 +70,5 @@ yarn-debug.log*
 
 config/credentials.yml.enc
 config/database.yml
+
+/log
