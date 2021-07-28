@@ -4,9 +4,11 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.4"
 
 gem "bootsnap", require: false
+gem "config"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.5.3"
 gem "rails", "~> 6.1.4"
+gem "rails-i18n", "~> 6.0.0"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 
