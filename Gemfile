@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.4"
 
 gem "bootsnap", require: false
+gem "bootstrap-sass", "3.4.1"
 gem "config"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.5.3"
