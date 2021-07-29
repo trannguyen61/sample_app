@@ -72,6 +72,7 @@ config/credentials.yml.enc
 config/database.yml
 
 /log
+/test
 
 config/settings.local.yml
 config/settings/*.local.yml
