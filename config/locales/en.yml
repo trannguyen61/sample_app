@@ -6,6 +6,10 @@ en:
   success_signup: "Welcome to the Sample App!"
   fail_signup: "Errors occurred. Please try again."
   not_found: "Not found."
+  controllers:
+    sessions:
+      create:
+        login_error: "Invalid credentials."
   layouts:
     header:
       login: "Login"
@@ -22,6 +26,7 @@ en:
   sessions:
     new:
       new_user: "New User?"
+      remember_me: "Remember me"
     create:
       login_error: "Invalid credentials."
   static_pages:
