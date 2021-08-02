@@ -6,6 +6,7 @@ class UserController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:success] = t "success_signup"
       redirect_to @user
     else
@@ -25,7 +26,6 @@ class UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user)
-          .permit User::PERMITTED_FIELDS
+    params.require(:user).permit User::PERMITTED_FIELDS
   end
 end
