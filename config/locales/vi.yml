@@ -22,6 +22,7 @@ vi:
   sessions:
     new:
       new_user: "Người dùng mới?"
+      remember_me: "Nhớ đăng nhập"
     create:
       login_error: "Email hoặc mật khẩu không chính xác."
   static_pages:
