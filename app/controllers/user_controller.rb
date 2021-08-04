@@ -1,4 +1,13 @@
 class UserController < ApplicationController
+  before_action :load_user, except: %i(index new create)
+  before_action :logged_in_user, only: %i(index edit update)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, only: :destroy
+
+  def index
+    @users = User.all.page params[:page]
+  end
+
   def new
     @user = User.new
   end
@@ -15,17 +24,56 @@ class UserController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find_by id: params[:id]
-    return if @user
+  def show; end
 
-    flash[:error] = t "not_found"
-    redirect_to root_path
+  def edit; end
+
+  def update
+    if @user.update user_params
+      flash[:success] = t "profile_updated"
+      redirect_to @user
+    else
+      flash[:danger] = t "fail_updated"
+      render :edit
+    end
+  end
+
+  def destroy
+    if current_user != @user && @user.destroy
+      flash[:success] = t "success_deleted"
+    else
+      flash[:danger] = t "fail_deleted"
+    end
+    redirect_to user_url
   end
 
   private
 
   def user_params
     params.require(:user).permit User::PERMITTED_FIELDS
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t "require_login"
+    redirect_to login_url
+  end
+
+  def correct_user
+    redirect_to root_url unless current_user? @user
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+
+    flash[:danger] = t "not_found"
+    redirect_to root_path
   end
 end
