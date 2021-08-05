@@ -80,3 +80,6 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 
 .vscode
+
+# Ignore application configuration
+/config/application.yml
