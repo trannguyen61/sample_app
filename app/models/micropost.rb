@@ -8,6 +8,8 @@ class Micropost < ApplicationRecord
   delegate :name, to: :user, prefix: true
 
   scope :recent_posts, ->{order created_at: :desc}
+  scope :post_by_user, ->(ids){where user_id: ids}
+
   validates :user_id, presence: true
   validates :content, presence: true,
                       length: {maximum: Settings.validation.post.max_length}

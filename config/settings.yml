@@ -11,6 +11,7 @@ gravatar:
   default_size: 80
   list_user_size: 50
   post_size: 50
+  follow_size: 30
 validation:
   name:
     max_length: 50
