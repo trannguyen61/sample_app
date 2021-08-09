@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save :alter_email
@@ -21,6 +23,8 @@ class User < ApplicationRecord
                         minimum: Settings.validation.password.min_length
                       },
                       allow_nil: true
+
+  scope :feed, ->id {Micropost.where "user_id = ?", id}
 
   def self.digest string
     cost =
