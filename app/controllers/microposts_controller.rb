@@ -12,7 +12,7 @@ class MicropostsController < ApplicationController
 
       # Home page requires @feed_items
       # while directly rendering doesn't invoke controller method
-      @feed_items = User.feed(current_user.id).page params[:page]
+      @feed_items = current_user.feed.page params[:page]
       render "static_pages/home"
     end
   end
